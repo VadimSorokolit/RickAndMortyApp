@@ -14,6 +14,7 @@ enum CharactersModels {
         struct Request {
         }
         struct Response {
+            let characters: [CharResult]
         }
         struct ViewModel {
         }
