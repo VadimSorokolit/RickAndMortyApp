@@ -57,8 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				DDEF440F2D973EC800DFECE8 /* App */,
-				DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */,
+				DDEF44102D97404300DFECE8 /* Scenes */,
 				DDEF44002D973EC200DFECE8 /* Info.plist */,
+				DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */,
 				DDEF44022D973EC200DFECE8 /* LaunchScreen.storyboard */,
 				DDEF44032D973EC200DFECE8 /* RickAndMortyApp.xcdatamodeld */,
 				DDEF44052D973EC200DFECE8 /* ViewController.swift */,
@@ -73,6 +74,13 @@
 				DDEF44042D973EC200DFECE8 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		DDEF44102D97404300DFECE8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
