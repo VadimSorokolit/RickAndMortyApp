@@ -8,16 +8,22 @@
 
 import UIKit
 
-class CharactersViewController: UIViewController {
+protocol CharactersDisplayLogic: AnyObject {
+    func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel)
+    func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel)
+}
+
+class CharactersViewController: CharactersDisplayLogic {
     
-    // MARK - Lifecycle
+    // MARK: - Methods
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = .yellow
+    func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
+        <#code#>
     }
-
-
+    
+    func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
+        <#code#>
+    }
+    
 }
 

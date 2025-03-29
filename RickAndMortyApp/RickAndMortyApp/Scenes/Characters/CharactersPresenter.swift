@@ -15,14 +15,29 @@ protocol CharactersPresenterLogic {
 
 class CharactersPresenter: CharactersPresenterLogic {
     
+    // MARK: - Properties
+    
+    var viewController: CharactersDisplayLogic?
+    
+    // MARK: - Methods
+    
     func presentCharacters(response: CharacterModels.DisplayCharacters.Response) {
-        let cartoonCharacters = response.characters
+        let viewModelCharacters = response.characters.map({ character in
+            CharacterModels.DisplayCharacters.ViewModel.characterInformationModel(
+                id: character.id,
+                name: character.name,
+                species: character.species
+            )
+        })
+        let viewModel = CharacterModels.DisplayCharacters.ViewModel(characterInformation: viewModelCharacters)
+        self.viewController?.displayCharacters(viewModel: viewModel)
     }
     
     func presentError(error: Error) {
         let errorMessage = error.localizedDescription
         
         let errorViewModel = CharacterModels.DisplayCharacters.ViewModel(characterInformation: [], errorMessage: errorMessage)
+        self.viewController?.displayError(viewModel: errorViewModel)
     }
     
 }
