@@ -12,6 +12,7 @@ import Alamofire
 typealias CompletionHandler = ((Result<Сharacters, Error>) -> Void)
 
 class CharactersWorker {
+    
     private let baseUrl = "https://rickandmortyapi.com/api/character"
     
     func fetchCharacters(page: Int, completion: @escaping CompletionHandler) {
@@ -33,5 +34,6 @@ class CharactersWorker {
                 }
             }
     }
+    
 }
 

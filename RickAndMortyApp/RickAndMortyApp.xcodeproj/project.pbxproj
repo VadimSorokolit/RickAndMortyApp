@@ -15,7 +15,7 @@
 		DDEF440E2D973EC200DFECE8 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44052D973EC200DFECE8 /* CharacterViewController.swift */; };
 		DDEF44132D9741E300DFECE8 /* CharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44122D9741C600DFECE8 /* CharactersInteractor.swift */; };
 		DDEF44152D97420D00DFECE8 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44142D9741FF00DFECE8 /* CharactersPresenter.swift */; };
-		DDEF44172D97422300DFECE8 /* CharactersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44162D97421300DFECE8 /* CharactersModels.swift */; };
+		DDEF44172D97422300DFECE8 /* CharacterModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44162D97421300DFECE8 /* CharacterModels.swift */; };
 		DDEF44192D97424B00DFECE8 /* CharactersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44182D97422A00DFECE8 /* CharactersWorker.swift */; };
 		DDEF441B2D97426C00DFECE8 /* CharactersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF441A2D97425200DFECE8 /* CharactersRouter.swift */; };
 		DDEF441E2D974C8400DFECE8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DDEF441D2D974C8400DFECE8 /* Alamofire */; };
@@ -34,7 +34,7 @@
 		DDEF44072D973EC200DFECE8 /* RickAndMortyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RickAndMortyApp.xcdatamodel; sourceTree = "<group>"; };
 		DDEF44122D9741C600DFECE8 /* CharactersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersInteractor.swift; sourceTree = "<group>"; };
 		DDEF44142D9741FF00DFECE8 /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
-		DDEF44162D97421300DFECE8 /* CharactersModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModels.swift; sourceTree = "<group>"; };
+		DDEF44162D97421300DFECE8 /* CharacterModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModels.swift; sourceTree = "<group>"; };
 		DDEF44182D97422A00DFECE8 /* CharactersWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersWorker.swift; sourceTree = "<group>"; };
 		DDEF441A2D97425200DFECE8 /* CharactersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRouter.swift; sourceTree = "<group>"; };
 		DDEF44222D975A8400DFECE8 /* CharacterModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModels.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			children = (
 				DDEF441A2D97425200DFECE8 /* CharactersRouter.swift */,
 				DDEF44182D97422A00DFECE8 /* CharactersWorker.swift */,
-				DDEF44162D97421300DFECE8 /* CharactersModels.swift */,
+				DDEF44162D97421300DFECE8 /* CharacterModels.swift */,
 				DDEF44142D9741FF00DFECE8 /* CharactersPresenter.swift */,
 				DDEF44122D9741C600DFECE8 /* CharactersInteractor.swift */,
 				DDEF44052D973EC200DFECE8 /* CharacterViewController.swift */,
@@ -191,7 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDEF44172D97422300DFECE8 /* CharactersModels.swift in Sources */,
+				DDEF44172D97422300DFECE8 /* CharacterModels.swift in Sources */,
 				DDEF441B2D97426C00DFECE8 /* CharactersRouter.swift in Sources */,
 				DDEF440B2D973EC200DFECE8 /* AppDelegate.swift in Sources */,
 				DDEF440C2D973EC200DFECE8 /* RickAndMortyApp.xcdatamodeld in Sources */,
