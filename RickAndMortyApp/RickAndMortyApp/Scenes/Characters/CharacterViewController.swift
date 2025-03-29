@@ -13,16 +13,23 @@ protocol CharactersDisplayLogic: AnyObject {
     func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel)
 }
 
-class CharactersViewController: CharactersDisplayLogic {
+class CharactersViewController: UIViewController, CharactersDisplayLogic {
     
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = .yellow
+    }
     // MARK: - Methods
     
     func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
-        <#code#>
+        print("")
     }
     
     func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
-        <#code#>
+        print("")
     }
     
 }
