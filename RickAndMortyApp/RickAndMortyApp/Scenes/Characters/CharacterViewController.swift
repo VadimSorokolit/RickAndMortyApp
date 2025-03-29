@@ -16,7 +16,7 @@ protocol CharactersDisplayLogic: AnyObject {
 class CharactersViewController: UIViewController, CharactersDisplayLogic {
 
 // TODO: - For tests !!!
-//    weak var interactor: CharacterModelsBusinessLogic?
+    var interactor: CharacterModelsBusinessLogic?
     
     // MARK: - Lifecycle
     
@@ -34,20 +34,22 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
 
 // TODO: - For tests !!!
 //    private func setup() {
-//        self.view.backgroundColor = .yellow
 //        let viewController = self
 //        let interactor = CharactersInteractor()
 //        let presenter = CharactersPresenter()
-//        
-//        interactor.presenter = presenter
-//        presenter.viewController = viewController
+//        let coreDataManager = CoreDataManager()
+//        let worker = CharactersWorker(coreDataManager: coreDataManager)
+//
 //        viewController.interactor = interactor
+//        interactor.presenter = presenter
+//        interactor.worker = worker
+//        presenter.viewController = viewController
 //    }
-//    
-//    func fetchCharacters() {
-//        let request = CharacterModels.DisplayCharacters.Request(page: 0)
-//        self.interactor?.fetchCharacters(request: request)
-//    }
+    
+    func fetchCharacters() {
+        let request = CharacterModels.DisplayCharacters.Request(page: 1)
+        self.interactor?.fetchCharacters(request: request)
+    }
     
     func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
         print(viewModel.characterInformation)

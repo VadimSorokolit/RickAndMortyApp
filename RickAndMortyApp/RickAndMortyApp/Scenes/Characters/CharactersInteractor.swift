@@ -16,8 +16,8 @@ class CharactersInteractor: CharacterModelsBusinessLogic {
     
     // MARK: - Properties
     
-    weak var worker: CharactersWorkerProtocol?
-    weak var presenter: CharactersPresenterLogic?
+    var worker: CharactersWorkerProtocol?
+    var presenter: CharactersPresenterLogic?
     
     // MARK: - Methods
     

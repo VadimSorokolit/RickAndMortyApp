@@ -10,4 +10,13 @@ import Foundation
 import CoreData
 
 @objc(CharacterEntity)
-public class CharacterEntity: NSManagedObject {}
+public class CharacterEntity: NSManagedObject {
+    
+    func toCharResult() -> CharResult {
+        return CharResult(
+            id: Int(self.id),
+            name: self.name ?? "Unknown",
+            image: self.image ?? ""
+        )
+    }
+}

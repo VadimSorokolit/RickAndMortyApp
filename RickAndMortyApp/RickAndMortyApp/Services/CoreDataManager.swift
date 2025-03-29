@@ -11,13 +11,14 @@ import CoreData
 
 protocol APICharacters: AnyObject {
     func fetchCharacters(completion: @escaping (Result<[CharacterEntity], Error>) -> Void)
+    func saveCharacters(characters: [CharResult], completion: ((Error?) -> Void)?)
 }
 
 class CoreDataManager: APICharacters {
     
     // MARK: - Properties
     
-    private var persistentContainer: NSPersistentContainer!
+    private let persistentContainer: NSPersistentContainer
     
     private var context: NSManagedObjectContext {
         return self.persistentContainer.viewContext
@@ -25,14 +26,19 @@ class CoreDataManager: APICharacters {
     
     // MARK: - Initializer
     
-    init(persistentContainer: NSPersistentContainer) {
-        self.persistentContainer = persistentContainer
+    init() {
+        self.persistentContainer = NSPersistentContainer(name: "RickAndMortyApp")
+        self.persistentContainer.loadPersistentStores { _, error in
+            if let error = error {
+                fatalError("Failed to load Core Data store: \(error)")
+            }
+        }
     }
     
     // MARK: - Methods
     
-    func fetchCharacters(completion: @escaping (Result<[CharacterEntity], any Error>) -> Void) {
-        self.persistentContainer.performBackgroundTask({ (context: NSManagedObjectContext) -> Void in
+    func fetchCharacters(completion: @escaping (Result<[CharacterEntity], Error>) -> Void) {
+        self.persistentContainer.performBackgroundTask { context in
             let fetchRequest: NSFetchRequest<CharacterEntity> = CharacterEntity.fetchRequest()
             do {
                 let characters = try context.fetch(fetchRequest)
@@ -40,17 +46,24 @@ class CoreDataManager: APICharacters {
             } catch {
                 completion(.failure(error))
             }
-            
-        })
+        }
     }
     
     func saveCharacters(characters: [CharResult], completion: ((Error?) -> Void)? = nil) {
         persistentContainer.performBackgroundTask { context in
-            for apiCharacter in characters {
-                let characterEntity = CharacterEntity(context: context)
-                characterEntity.id = Int64(apiCharacter.id) 
-                characterEntity.name = apiCharacter.name
-                characterEntity.image = apiCharacter.image
+            for character in characters {
+                let fetchRequest: NSFetchRequest<CharacterEntity> = CharacterEntity.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "id == %d", character.id)
+                
+                let existing = try? context.fetch(fetchRequest)
+                if let existing = existing, !existing.isEmpty {
+                    continue
+                }
+                
+                let entity = CharacterEntity(context: context)
+                entity.id = Int64(character.id)
+                entity.name = character.name
+                entity.image = character.image
             }
             
             do {

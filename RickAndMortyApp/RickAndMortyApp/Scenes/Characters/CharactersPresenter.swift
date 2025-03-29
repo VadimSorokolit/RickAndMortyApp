@@ -26,7 +26,6 @@ class CharactersPresenter: CharactersPresenterLogic {
             CharacterModels.DisplayCharacters.ViewModel.characterInformationModel(
                 id: character.id,
                 name: character.name,
-                species: character.species,
                 image: character.image
             )
         })
