@@ -9,9 +9,13 @@
 import Foundation
 import Alamofire
 
-typealias CompletionHandler = ((Result<Сharacters, Error>) -> Void)
+protocol CharactersWorkerProtocol: AnyObject {
+    typealias CompletionHandler = ((Result<Characters, Error>) -> Void)
+    
+    func fetchCharacters(page: Int, completion: @escaping CompletionHandler)
+}
 
-class CharactersWorker {
+class CharactersWorker: CharactersWorkerProtocol {
     
     private let baseUrl = "https://rickandmortyapi.com/api/character"
     
@@ -24,7 +28,7 @@ class CharactersWorker {
                 switch response.result {
                     case .success(let data):
                         do {
-                            let characters = try JSONDecoder().decode(Сharacters.self, from: data)
+                            let characters = try JSONDecoder().decode(Characters.self, from: data)
                             completion(.success(characters))
                         } catch {
                             completion(.failure(error))

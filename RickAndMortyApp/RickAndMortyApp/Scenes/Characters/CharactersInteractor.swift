@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CharacterModelsBusinessLogic {
+protocol CharacterModelsBusinessLogic: AnyObject {
     func fetchCharacters(request: CharacterModels.DisplayCharacters.Request)
 }
 
@@ -16,13 +16,13 @@ class CharactersInteractor: CharacterModelsBusinessLogic {
     
     // MARK: - Properties
     
-    var worker: CharactersWorker?
-    var presenter: CharactersPresenterLogic?
+    weak var worker: CharactersWorkerProtocol?
+    weak var presenter: CharactersPresenterLogic?
     
     // MARK: - Methods
     
     func fetchCharacters(request: CharacterModels.DisplayCharacters.Request) {
-        worker?.fetchCharacters(page: 8, completion: { result in
+        self.worker?.fetchCharacters(page: request.page, completion: { result in
             switch result {
                     case .success(let characters):
                     let response = CharacterModels.DisplayCharacters.Response(characters: characters.results)

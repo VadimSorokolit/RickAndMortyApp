@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CharactersPresenterLogic {
+protocol CharactersPresenterLogic: AnyObject {
     func presentCharacters(response: CharacterModels.DisplayCharacters.Response)
     func presentError(error: Error)
 }
@@ -26,7 +26,8 @@ class CharactersPresenter: CharactersPresenterLogic {
             CharacterModels.DisplayCharacters.ViewModel.characterInformationModel(
                 id: character.id,
                 name: character.name,
-                species: character.species
+                species: character.species,
+                image: character.image
             )
         })
         let viewModel = CharacterModels.DisplayCharacters.ViewModel(characterInformation: viewModelCharacters)
