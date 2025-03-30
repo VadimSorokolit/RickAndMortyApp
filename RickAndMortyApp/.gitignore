@@ -1,0 +1,7 @@
+*.xcuserstate
+*.xcuserdata/
+build/
+DerivedData/
+.idea/
+*.swp
+*.DS_Store
