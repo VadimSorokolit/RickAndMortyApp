@@ -17,7 +17,7 @@ class CharactersPresenter: CharactersPresenterLogic {
     
     // MARK: - Properties
     
-    var viewController: CharactersDisplayLogic?
+    weak var viewController: CharactersDisplayLogic?
     
     // MARK: - Methods
     
