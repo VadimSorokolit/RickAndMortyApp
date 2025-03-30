@@ -16,21 +16,37 @@ class CharactersInteractor: CharacterModelsBusinessLogic {
     
     // MARK: - Properties
     
-    var worker: CharactersWorkerProtocol?
+    var worker: CharactersNetworkWorkerProtocol?
+    var storage: CharactersStorageProtocol?
     var presenter: CharactersPresenterLogic?
     
     // MARK: - Methods
     
     func fetchCharacters(request: CharacterModels.DisplayCharacters.Request) {
-        self.worker?.fetchCharacters(page: request.page, completion: { result in
+        self.worker?.fetchCharacters(page: request.page) { [weak self] result in
             switch result {
-                    case .success(let characters):
+                case .success(let characters):
+                    self?.storage?.saveCharacters(characters: characters.results, completion: nil)
+                    
                     let response = CharacterModels.DisplayCharacters.Response(characters: characters.results)
-                    self.presenter?.presentCharacters(response: response)
-                case .failure(let error):
-                    self.presenter?.presentError(error: error)
+                    self?.presenter?.presentCharacters(response: response)
+                    
+                case .failure(let networkError):
+                    self?.storage?.fetchCharacters { localResult in
+                        switch localResult {
+                            case .success(let cachedCharacters) where !cachedCharacters.isEmpty:
+                                let charResults = cachedCharacters.map { entity in
+                                    CharResult(id: Int(entity.id),
+                                               name: entity.name ?? "Unknown",
+                                               image: entity.iconURL ?? "")
+                                }
+                                let response = CharacterModels.DisplayCharacters.Response(characters: charResults)
+                                self?.presenter?.presentCharacters(response: response)
+                            case .success, .failure:
+                                self?.presenter?.presentError(error: networkError)
+                        }
+                    }
             }
-        })
+        }
     }
-    
 }

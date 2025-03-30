@@ -37,8 +37,7 @@ class CharactersViewController: UIViewController {
         let viewController = self
         let interactor = CharactersInteractor()
         let presenter = CharactersPresenter()
-        let coreDataManager = CoreDataWorker()
-        let worker = CharactersWorker(coreDataManager: coreDataManager)
+        let worker = CharactersNetworkWorker()
 
         viewController.interactor = interactor
         interactor.presenter = presenter
