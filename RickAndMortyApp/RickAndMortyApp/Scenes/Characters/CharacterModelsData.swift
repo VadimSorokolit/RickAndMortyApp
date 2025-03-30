@@ -6,26 +6,41 @@
 //
     
 
-import UIKit
+import Foundation
 
 enum CharacterModels {
     
     enum DisplayCharacters {
+        
         struct Request {
             let page: Int
         }
+        
         struct Response {
             let characters: [CharResult]
         }
+        
         struct ViewModel {
-            struct characterInformationModel {
+            
+            struct CharacterModel {
                 let id: Int
                 let name: String
                 let image: String
             }
-            var characterInformation: [characterInformationModel]
+            
+            init (characterModels: [CharacterModel]) {
+                self.characterModels = characterModels
+            }
+            
+            init(errorMessage: String?) {
+                self.characterModels = []
+                self.errorMessage = errorMessage
+            }
+            
+            var characterModels: [CharacterModel]
             var errorMessage: String?
         }
+        
     }
     
 }

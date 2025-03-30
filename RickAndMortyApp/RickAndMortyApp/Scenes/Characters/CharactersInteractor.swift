@@ -6,7 +6,7 @@
 //
     
 
-import UIKit
+import Foundation
 
 protocol CharacterModelsBusinessLogic: AnyObject {
     func fetchCharacters(request: CharacterModels.DisplayCharacters.Request)

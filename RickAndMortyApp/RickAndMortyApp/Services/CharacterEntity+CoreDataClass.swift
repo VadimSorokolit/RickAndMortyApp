@@ -17,7 +17,7 @@ extension CharacterEntity {
         return CharResult(
             id: Int(self.id),
             name: self.name ?? "Unknown",
-            image: self.image ?? ""
+            image: self.iconURL ?? ""
         )
     }
 }

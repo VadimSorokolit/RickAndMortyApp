@@ -20,11 +20,11 @@ class CharactersWorker: CharactersWorkerProtocol {
     // MARK: - Properties
     
     private let baseUrl = "https://rickandmortyapi.com/api/character"
-    private let coreDataManager: CoreDataManager
+    private let coreDataManager: CoreDataWorker
     
     // MARK: - Initializer
     
-    init(coreDataManager: CoreDataManager) {
+    init(coreDataManager: CoreDataWorker) {
         self.coreDataManager = coreDataManager
     }
     

@@ -13,7 +13,7 @@ protocol CharactersDisplayLogic: AnyObject {
     func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel)
 }
 
-class CharactersViewController: UIViewController, CharactersDisplayLogic {
+class CharactersViewController: UIViewController {
 
 // TODO: - For tests !!!
     var interactor: CharacterModelsBusinessLogic?
@@ -37,7 +37,7 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         let viewController = self
         let interactor = CharactersInteractor()
         let presenter = CharactersPresenter()
-        let coreDataManager = CoreDataManager()
+        let coreDataManager = CoreDataWorker()
         let worker = CharactersWorker(coreDataManager: coreDataManager)
 
         viewController.interactor = interactor
@@ -51,8 +51,12 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         self.interactor?.fetchCharacters(request: request)
     }
     
+}
+
+extension CharactersViewController: CharactersDisplayLogic {
+    
     func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
-        print(viewModel.characterInformation)
+        print(viewModel.characterModels)
     }
     
     func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
@@ -60,4 +64,5 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
     }
     
 }
+    
 
