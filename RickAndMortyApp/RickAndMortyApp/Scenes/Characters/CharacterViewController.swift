@@ -7,59 +7,123 @@
     
 
 import UIKit
+import SnapKit
 
 protocol CharactersDisplayLogic: AnyObject {
     func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel)
     func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel)
 }
 
-class CharactersViewController: UIViewController {
-
-// TODO: - For tests !!!
-    var interactor: CharacterModelsBusinessLogic?
+class CharactersViewController: UIViewController, CharactersDisplayLogic {
+    
+    // MARK: - Objects
+    
+    private struct Constants {
+        static let tableViewCornerRadius: CGFloat = 20.0
+        static let tableViewRowHeight: CGFloat = 80.0
+        static let requestPage: Int = 1
+        static let customTableViewInset = 20.0
+        static let customErrorMessage: String = "Error"
+    }
+    
+    // MARK: - Properties
+    
+    private var interactor: CharacterModelsBusinessLogic?
+    private var characters: [CharacterModels.DisplayCharacters.ViewModel.CharacterModel] = []
+    
+    private var charactersCount: Int = .zero {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.layer.cornerRadius = Constants.tableViewCornerRadius
+        tableView.layer.masksToBounds = true
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.rowHeight = Constants.tableViewRowHeight
+        return tableView
+    }()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .yellow
-        
-// TODO: - For tests !!!
         self.setup()
         self.fetchCharacters()
     }
     
     // MARK: - Methods
 
-// TODO: - For tests !!!
     private func setup() {
+        self.setupViews()
+    }
+    
+    private func setupViews() {
+        self.view.backgroundColor = .lightGray
+        self.view.addSubview(self.tableView)
+        
         let viewController = self
         let interactor = CharactersInteractor()
         let presenter = CharactersPresenter()
         let worker = CharactersNetworkWorker()
-
+        
         viewController.interactor = interactor
         interactor.presenter = presenter
         interactor.worker = worker
         presenter.viewController = viewController
+
+        self.tableView.snp.makeConstraints({
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.left.equalToSuperview().inset(Constants.customTableViewInset)
+            $0.right.equalToSuperview().inset(Constants.customTableViewInset)
+            $0.bottom.equalToSuperview().inset(Constants.customTableViewInset)
+            
+        })
+        self.tableView.register(CharacterCell.self, forCellReuseIdentifier: CharacterCell.reuseID)
     }
     
-    func fetchCharacters() {
-        let request = CharacterModels.DisplayCharacters.Request(page: 1)
+    private func fetchCharacters() {
+        let request = CharacterModels.DisplayCharacters.Request(page: Constants.requestPage)
         self.interactor?.fetchCharacters(request: request)
+    }
+    
+    // MARK: - CharactersDisplayLogic
+    
+    func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
+        self.charactersCount = viewModel.characterModels.count
+        self.characters = viewModel.characterModels
+    }
+    
+    func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
+        print(viewModel.errorMessage ?? Constants.customErrorMessage)
     }
     
 }
 
-extension CharactersViewController: CharactersDisplayLogic {
-    
-    func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
-        print(viewModel.characterModels)
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
+extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.charactersCount
     }
     
-    func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
-        print(viewModel.errorMessage ?? "Error")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterCell.reuseID, for: indexPath) as? CharacterCell else {
+            return UITableViewCell() }
+        let character = self.characters[indexPath.row]
+        cell.setupContent(photoURL: character.image, name: character.name, id: character.id)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

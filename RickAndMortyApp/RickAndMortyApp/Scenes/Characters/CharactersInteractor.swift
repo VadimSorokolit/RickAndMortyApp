@@ -17,7 +17,7 @@ class CharactersInteractor: CharacterModelsBusinessLogic {
     // MARK: - Properties
     
     var worker: CharactersNetworkWorkerProtocol?
-    var storage: CharactersStorageProtocol?
+    private var storage: CharactersStorageProtocol?
     var presenter: CharactersPresenterLogic?
     
     // MARK: - Methods
@@ -49,4 +49,5 @@ class CharactersInteractor: CharacterModelsBusinessLogic {
             }
         }
     }
+    
 }

@@ -13,6 +13,9 @@
 		DDB6FC1A2D986A1600F4C149 /* CharactersStorageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6FC192D9869F600F4C149 /* CharactersStorageWorker.swift */; };
 		DDC4F9132D994500009E322A /* CharacterModelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F9122D9944FF009E322A /* CharacterModelsData.swift */; };
 		DDC4F9152D994546009E322A /* RickAndMortyAPIDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */; };
+		DDC4F9242D9987D0009E322A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDC4F9232D9987D0009E322A /* SnapKit */; };
+		DDC4F9272D998CA8009E322A /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F9262D998CA4009E322A /* CharacterCell.swift */; };
+		DDC4F92C2D99D02F009E322A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DDC4F92B2D99D02F009E322A /* SDWebImage */; };
 		DDEF44082D973EC200DFECE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */; };
 		DDEF440A2D973EC200DFECE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEF44022D973EC200DFECE8 /* LaunchScreen.storyboard */; };
 		DDEF440B2D973EC200DFECE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF43FE2D973EC200DFECE8 /* AppDelegate.swift */; };
@@ -31,6 +34,7 @@
 		DDB6FC192D9869F600F4C149 /* CharactersStorageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersStorageWorker.swift; sourceTree = "<group>"; };
 		DDC4F9122D9944FF009E322A /* CharacterModelsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelsData.swift; sourceTree = "<group>"; };
 		DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyAPIDataModels.swift; sourceTree = "<group>"; };
+		DDC4F9262D998CA4009E322A /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		DDEF43D32D973A8F00DFECE8 /* RickAndMortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEF43FE2D973EC200DFECE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC4F92C2D99D02F009E322A /* SDWebImage in Frameworks */,
 				DD67D0EA2D9823E20026EF0E /* Alamofire in Frameworks */,
+				DDC4F9242D9987D0009E322A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +90,14 @@
 			path = Workers;
 			sourceTree = "<group>";
 		};
+		DDC4F9252D998C9A009E322A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDC4F9262D998CA4009E322A /* CharacterCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DDEF43CA2D973A8F00DFECE8 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +117,7 @@
 		DDEF44062D973EC200DFECE8 /* RickAndMortyApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDC4F9252D998C9A009E322A /* Views */,
 				DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */,
 				DDB6FC132D98577300F4C149 /* Services */,
 				DDEF440F2D973EC800DFECE8 /* App */,
@@ -162,6 +177,8 @@
 			name = RickAndMortyApp;
 			packageProductDependencies = (
 				DD67D0E92D9823E20026EF0E /* Alamofire */,
+				DDC4F9232D9987D0009E322A /* SnapKit */,
+				DDC4F92B2D99D02F009E322A /* SDWebImage */,
 			);
 			productName = RickAndMortyApp;
 			productReference = DDEF43D32D973A8F00DFECE8 /* RickAndMortyApp.app */;
@@ -193,6 +210,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				DD67D0E82D9823E20026EF0E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DDC4F9222D9987D0009E322A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DDC4F92A2D99D02F009E322A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DDEF43D42D973A8F00DFECE8 /* Products */;
@@ -222,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDEF441B2D97426C00DFECE8 /* CharactersRouter.swift in Sources */,
+				DDC4F9272D998CA8009E322A /* CharacterCell.swift in Sources */,
 				DDEF440B2D973EC200DFECE8 /* AppDelegate.swift in Sources */,
 				DDC4F9152D994546009E322A /* RickAndMortyAPIDataModels.swift in Sources */,
 				DDC4F9132D994500009E322A /* CharacterModelsData.swift in Sources */,
@@ -466,6 +486,22 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		DDC4F9222D9987D0009E322A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		DDC4F92A2D99D02F009E322A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -473,6 +509,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD67D0E82D9823E20026EF0E /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		DDC4F9232D9987D0009E322A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDC4F9222D9987D0009E322A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		DDC4F92B2D99D02F009E322A /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDC4F92A2D99D02F009E322A /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
