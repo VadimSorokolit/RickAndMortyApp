@@ -63,6 +63,7 @@
 				DDB6FC192D9869F600F4C149 /* CoreDataManager.swift */,
 				DDB6FC162D985DFA00F4C149 /* CharacterEntity+CoreDataProperties.swift */,
 				DDB6FC152D985DFA00F4C149 /* CharacterEntity+CoreDataClass.swift */,
+				DDC4F9142D994543009E322A /* RickAndMortyModels.swift */,
 				DDB6FC142D98579E00F4C149 /* Entities */,
 			);
 			path = Services;
@@ -95,7 +96,6 @@
 		DDEF44062D973EC200DFECE8 /* RickAndMortyApp */ = {
 			isa = PBXGroup;
 			children = (
-				DDC4F9142D994543009E322A /* RickAndMortyModels.swift */,
 				DDB6FC132D98577300F4C149 /* Services */,
 				DDEF440F2D973EC800DFECE8 /* App */,
 				DDEF44102D97404300DFECE8 /* Scenes */,
