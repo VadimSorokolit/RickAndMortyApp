@@ -79,7 +79,7 @@
 		DDEF43CA2D973A8F00DFECE8 = {
 			isa = PBXGroup;
 			children = (
-				DDEF44062D973EC200DFECE8 /* RickAndMortyApp */,
+				DDEF44062D973EC200DFECE8 /* RickAndMortyAppTest */,
 				DDEF43D42D973A8F00DFECE8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,7 +92,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DDEF44062D973EC200DFECE8 /* RickAndMortyApp */ = {
+		DDEF44062D973EC200DFECE8 /* RickAndMortyAppTest */ = {
 			isa = PBXGroup;
 			children = (
 				DDC4F90E2D993FC5009E322A /* RickAndMortyAPIModels.swift */,
@@ -103,7 +103,7 @@
 				DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */,
 				DDEF44022D973EC200DFECE8 /* LaunchScreen.storyboard */,
 			);
-			path = RickAndMortyApp;
+			path = RickAndMortyAppTest;
 			sourceTree = "<group>";
 		};
 		DDEF440F2D973EC800DFECE8 /* App */ = {
