@@ -26,25 +26,25 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         self.view.backgroundColor = .yellow
         
 // TODO: - For tests !!!
-//        self.setup()
-//        self.fetchCharacters()
+        self.setup()
+        self.fetchCharacters()
     }
     
     // MARK: - Methods
 
 // TODO: - For tests !!!
-//    private func setup() {
-//        let viewController = self
-//        let interactor = CharactersInteractor()
-//        let presenter = CharactersPresenter()
-//        let coreDataManager = CoreDataManager()
-//        let worker = CharactersWorker(coreDataManager: coreDataManager)
-//
-//        viewController.interactor = interactor
-//        interactor.presenter = presenter
-//        interactor.worker = worker
-//        presenter.viewController = viewController
-//    }
+    private func setup() {
+        let viewController = self
+        let interactor = CharactersInteractor()
+        let presenter = CharactersPresenter()
+        let coreDataManager = CoreDataManager()
+        let worker = CharactersWorker(coreDataManager: coreDataManager)
+
+        viewController.interactor = interactor
+        interactor.presenter = presenter
+        interactor.worker = worker
+        presenter.viewController = viewController
+    }
     
     func fetchCharacters() {
         let request = CharacterModels.DisplayCharacters.Request(page: 1)

@@ -10,8 +10,9 @@ import Foundation
 import CoreData
 
 @objc(CharacterEntity)
-public class CharacterEntity: NSManagedObject {
-    
+public class CharacterEntity: NSManagedObject {}
+
+extension CharacterEntity {
     func toCharResult() -> CharResult {
         return CharResult(
             id: Int(self.id),
@@ -20,3 +21,4 @@ public class CharacterEntity: NSManagedObject {
         )
     }
 }
+

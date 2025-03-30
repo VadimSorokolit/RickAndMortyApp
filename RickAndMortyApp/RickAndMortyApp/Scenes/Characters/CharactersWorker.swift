@@ -51,7 +51,7 @@ class CharactersWorker: CharactersWorkerProtocol {
                             switch result {
                                 case .success(let entities) where !entities.isEmpty:
                                     let charResults = entities.map { $0.toCharResult() }
-                                    let info = Info(count: charResults.count, pages: 1, next: nil, prev: nil)
+                                    let info = Info(count: charResults.count, pages: 1, next: "", prev: nil)
                                     let characters = Characters(info: info, results: charResults)
                                     completion(.success(characters))
                                 case .success, .failure:
