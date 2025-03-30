@@ -12,7 +12,7 @@
 		DDB6FC182D985DFA00F4C149 /* CharacterEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6FC162D985DFA00F4C149 /* CharacterEntity+CoreDataProperties.swift */; };
 		DDB6FC1A2D986A1600F4C149 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6FC192D9869F600F4C149 /* CoreDataManager.swift */; };
 		DDC4F9132D994500009E322A /* CharacterModelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F9122D9944FF009E322A /* CharacterModelsData.swift */; };
-		DDC4F9152D994546009E322A /* RickAndMortyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F9142D994543009E322A /* RickAndMortyModels.swift */; };
+		DDC4F9152D994546009E322A /* RickAndMortyAPIDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */; };
 		DDEF44082D973EC200DFECE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */; };
 		DDEF440A2D973EC200DFECE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEF44022D973EC200DFECE8 /* LaunchScreen.storyboard */; };
 		DDEF440B2D973EC200DFECE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF43FE2D973EC200DFECE8 /* AppDelegate.swift */; };
@@ -30,7 +30,7 @@
 		DDB6FC162D985DFA00F4C149 /* CharacterEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DDB6FC192D9869F600F4C149 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DDC4F9122D9944FF009E322A /* CharacterModelsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelsData.swift; sourceTree = "<group>"; };
-		DDC4F9142D994543009E322A /* RickAndMortyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyModels.swift; sourceTree = "<group>"; };
+		DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyAPIDataModels.swift; sourceTree = "<group>"; };
 		DDEF43D32D973A8F00DFECE8 /* RickAndMortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEF43FE2D973EC200DFECE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +63,6 @@
 				DDB6FC192D9869F600F4C149 /* CoreDataManager.swift */,
 				DDB6FC162D985DFA00F4C149 /* CharacterEntity+CoreDataProperties.swift */,
 				DDB6FC152D985DFA00F4C149 /* CharacterEntity+CoreDataClass.swift */,
-				DDC4F9142D994543009E322A /* RickAndMortyModels.swift */,
 				DDB6FC142D98579E00F4C149 /* Entities */,
 			);
 			path = Services;
@@ -96,6 +95,7 @@
 		DDEF44062D973EC200DFECE8 /* RickAndMortyApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */,
 				DDB6FC132D98577300F4C149 /* Services */,
 				DDEF440F2D973EC800DFECE8 /* App */,
 				DDEF44102D97404300DFECE8 /* Scenes */,
@@ -215,7 +215,7 @@
 			files = (
 				DDEF441B2D97426C00DFECE8 /* CharactersRouter.swift in Sources */,
 				DDEF440B2D973EC200DFECE8 /* AppDelegate.swift in Sources */,
-				DDC4F9152D994546009E322A /* RickAndMortyModels.swift in Sources */,
+				DDC4F9152D994546009E322A /* RickAndMortyAPIDataModels.swift in Sources */,
 				DDC4F9132D994500009E322A /* CharacterModelsData.swift in Sources */,
 				DDB6FC172D985DFA00F4C149 /* CharacterEntity+CoreDataClass.swift in Sources */,
 				DDB6FC182D985DFA00F4C149 /* CharacterEntity+CoreDataProperties.swift in Sources */,
