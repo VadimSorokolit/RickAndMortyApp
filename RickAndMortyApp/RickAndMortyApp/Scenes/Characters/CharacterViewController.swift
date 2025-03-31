@@ -103,7 +103,7 @@ class CharactersViewController: UIViewController {
             $0.bottom.equalToSuperview().inset(Constants.customTableViewInset)
             
         })
-        self.tableView.register(CharacterCell.self, forCellReuseIdentifier: CharacterCell.reuseID)
+        self.tableView.register(CartoonCharacterCell.self, forCellReuseIdentifier: CartoonCharacterCell.reuseID)
     }
     
     private func fetchCharacters() {
@@ -148,7 +148,7 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterCell.reuseID, for: indexPath) as? CharacterCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CartoonCharacterCell.reuseID, for: indexPath) as? CartoonCharacterCell else {
             return UITableViewCell() }
         let character = self.characters[indexPath.row]
         cell.setupContent(photoURL: character.image, name: character.name, id: character.id)
