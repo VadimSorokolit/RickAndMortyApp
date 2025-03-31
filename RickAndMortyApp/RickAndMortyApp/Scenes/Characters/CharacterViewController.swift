@@ -23,13 +23,25 @@ class CharactersViewController: UIViewController {
         static let tableViewRowHeight: CGFloat = 80.0
         static let requestPage: Int = 1
         static let customTableViewInset = 20.0
+        static let titelLabelTopInset: CGFloat = 20.0
+        static let tableViewTopInset: CGFloat = 30.0
         static let customErrorMessage: String = "Error"
+        static let titleLabelFontSize: CGFloat = 30
     }
     
     // MARK: - Properties
     
     private var interactor: CharacterModelsBusinessLogic?
     private var characters: [CharacterModels.DisplayCharacters.ViewModel.CharacterModel] = []
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Characters"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: Constants.titleLabelFontSize, weight: .bold)
+        label.textAlignment = .center
+        return label
+    }()
     
     private var charactersCount: Int = .zero {
         didSet {
@@ -65,6 +77,7 @@ class CharactersViewController: UIViewController {
     
     private func setupViews() {
         self.view.backgroundColor = .lightGray
+        self.view.addSubview(self.titleLabel)
         self.view.addSubview(self.tableView)
         
         let viewController = self
@@ -78,9 +91,13 @@ class CharactersViewController: UIViewController {
         interactor.networkWorker = worker
         interactor.storage = storageWorker
         presenter.viewController = viewController
-
+        
+        self.titleLabel.snp.makeConstraints({
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(Constants.titelLabelTopInset)
+            $0.centerX.equalToSuperview()
+        })
         self.tableView.snp.makeConstraints({
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(self.titleLabel.snp.bottom).offset(Constants.tableViewTopInset)
             $0.left.equalToSuperview().inset(Constants.customTableViewInset)
             $0.right.equalToSuperview().inset(Constants.customTableViewInset)
             $0.bottom.equalToSuperview().inset(Constants.customTableViewInset)
