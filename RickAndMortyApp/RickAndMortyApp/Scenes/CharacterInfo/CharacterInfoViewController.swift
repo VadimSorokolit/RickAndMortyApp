@@ -133,12 +133,12 @@ class CharacterInfoViewController: UIViewController {
         })
         
         self.contentView.snp.makeConstraints({
-            $0.edges.equalTo(scrollView.contentLayoutGuide)
-            $0.width.equalTo(scrollView.frameLayoutGuide)
+            $0.edges.equalTo(scrollView.contentLayoutGuide.snp.edges)
+            $0.width.equalTo(scrollView.frameLayoutGuide.snp.width)
         })
         
         self.titleLabel.snp.makeConstraints({
-            $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top).offset(Constants.titelLabelTopInset)
+            $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top).offset(Constants.titelLabelTopInset / 2.0)
             $0.centerX.equalTo(contentView)
         })
         
@@ -157,9 +157,7 @@ class CharacterInfoViewController: UIViewController {
             $0.bottom.equalTo(contentView).inset(Constants.titelLabelTopInset)
         })
         
-        if self.character != nil {
-             self.updateUI()
-        }
+        self.updateUI()
     }
     
     private func updateUI() {

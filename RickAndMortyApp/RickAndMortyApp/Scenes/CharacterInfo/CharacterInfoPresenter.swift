@@ -16,7 +16,7 @@ class CharacterInfoPresenter: CharacterInfoPresenterLogic {
     
     // MARK: - Properties
     
-    var viewController: CharacterInfoViewController?
+    weak var viewController: CharacterInfoViewController?
     
     // MARK: - Methods
     

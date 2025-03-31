@@ -12,17 +12,4 @@ import CoreData
 @objc(CharacterEntity)
 public class CharacterEntity: NSManagedObject {}
 
-extension CharacterEntity {
-    
-    func toCharResult() -> CharResult {
-        return CharResult(
-            id: Int(self.id),
-            name: self.name ?? "Unknown",
-            image: self.iconURL ?? "",
-            species: self.species ?? "",
-            gender: self.gender ?? "",
-            type: self.type ?? "Unknown"
-        )
-    }
-    
-}
+extension CharacterEntity {}

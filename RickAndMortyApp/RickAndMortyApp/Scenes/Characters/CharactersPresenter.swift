@@ -23,14 +23,7 @@ class CharactersPresenter: CharactersPresenterLogic {
     
     func presentCharacters(response: CharacterModels.DisplayCharacters.Response) {
         let characters = response.characters.map({ character in
-            CharacterModels.DisplayCharacters.ViewModel.CharacterModel(
-                id: character.id,
-                name: character.name,
-                image: character.image,
-                species: character.species,
-                gender: character.gender.rawValue,
-                type: character.type
-            )
+            CharacterModels.DisplayCharacters.ViewModel.CharacterModel(character: character)
         })
         let viewModel = CharacterModels.DisplayCharacters.ViewModel(characterModels: characters)
         self.viewController?.displayCharacters(viewModel: viewModel)

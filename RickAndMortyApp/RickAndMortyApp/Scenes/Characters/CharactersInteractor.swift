@@ -26,27 +26,27 @@ class CharactersInteractor: CharacterModelsBusinessLogic {
         self.networkWorker?.fetchCharacters(page: request.page) { [weak self] result in
             switch result {
                 case .success(let characters):
-                    self?.storage?.saveCharacters(characters: characters.results, completion: nil)
-                    
-                    let response = CharacterModels.DisplayCharacters.Response(characters: characters.results)
-                    self?.presenter?.presentCharacters(response: response)
-                    
+                    DispatchQueue.main.async {
+                        self?.storage?.saveCharacters(characters: characters.results, completion: nil)
+                        
+                        let response = CharacterModels.DisplayCharacters.Response(characters: characters.results)
+                        self?.presenter?.presentCharacters(response: response)
+                    }
                 case .failure(let networkError):
                     self?.storage?.fetchCharacters { localResult in
                         switch localResult {
                             case .success(let cachedCharacters) where !cachedCharacters.isEmpty:
                                 let charResults = cachedCharacters.map { entity in
-                                    CharResult(id: Int(entity.id),
-                                               name: entity.name ?? "Unknown",
-                                               image: entity.iconURL ?? "",
-                                               species: entity.species ?? "",
-                                               gender: entity.gender ?? "",
-                                               type: entity.type ?? "")
+                                    CharResult(entity: entity)
                                 }
                                 let response = CharacterModels.DisplayCharacters.Response(characters: charResults)
-                                self?.presenter?.presentCharacters(response: response)
+                                DispatchQueue.main.async {
+                                    self?.presenter?.presentCharacters(response: response)
+                                }
                             case .success, .failure:
-                                self?.presenter?.presentError(error: networkError)
+                                DispatchQueue.main.async {
+                                    self?.presenter?.presentError(error: networkError)
+                                }
                         }
                     }
             }

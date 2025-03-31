@@ -29,8 +29,17 @@ enum CharacterModels {
                 let species: String
                 let gender: String
                 let type: String
+                
+                init(character: CharResult) {
+                    self.id = character.id
+                    self.name = character.name
+                    self.image = character.image
+                    self.species = character.species
+                    self.gender = character.gender.rawValue
+                    self.type = character.type
+                }
             }
-            
+
             init (characterModels: [CharacterModel]) {
                 self.characterModels = characterModels
             }

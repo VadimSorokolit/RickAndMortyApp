@@ -56,48 +56,25 @@ struct Characters: Decodable {
 }
 
 extension CharResult {
-    init(id: Int, name: String, image: String, species: String, gender: String, type: String) {
-        self.id = id
-        self.name = name
-        self.image = image
+    
+    init(entity: CharacterEntity) {
+        self.id = Int(entity.id)
+        self.name = entity.name ?? "Unknown"
+        self.image = entity.iconURL ?? ""
         self.status = .unknown
-        self.species = species
-        self.type = type
-        self.gender = Gender(rawValue: gender) ?? .unknown
+        self.species = entity.species ?? ""
+        self.type = entity.type ?? ""
+        self.gender = Gender(rawValue: entity.gender ?? "") ?? .unknown
         self.origin = Location(name: "", url: "")
         self.location = Location(name: "", url: "")
         self.episode = []
         self.url = ""
         self.created = ""
     }
+    
 }
 
-extension Info: Equatable {
-    static func == (lhs: Info, rhs: Info) -> Bool {
-        return lhs.count == rhs.count &&
-        lhs.pages == rhs.pages &&
-        lhs.next == rhs.next &&
-        lhs.prev == rhs.prev
-    }
-}
 
-extension CharResult: Equatable {
-    static func == (lhs: CharResult, rhs: CharResult) -> Bool {
-        return lhs.id == rhs.id &&
-            lhs.name == rhs.name &&
-            lhs.image == rhs.image &&
-            lhs.species == rhs.species &&
-            lhs.gender == rhs.gender &&
-            lhs.type == rhs.type 
-    }
-}
-
-extension Characters: Equatable {
-    static func == (lhs: Characters, rhs: Characters) -> Bool {
-        return lhs.info == rhs.info &&
-            lhs.results == rhs.results
-    }
-}
 
     
 

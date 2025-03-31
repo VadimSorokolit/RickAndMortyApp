@@ -90,10 +90,12 @@ class CharacterTableViewCell: UITableViewCell {
         })
     }
     
-    func setupContent(photoURL: String, name: String, id: Int) {
-        self.photoImageView.sd_setImage(with: URL(string: photoURL), placeholderImage: UIImage(named: "placeholder"))
-        self.nameLabel.text = name
-        self.idLabel.text = "ID: \(id)"
+    func setupContent(character: CharacterModels.DisplayCharacters.ViewModel.CharacterModel) {
+        let imageUrl = URL(string: character.image)
+        let placeholderImage = UIImage(named: "placeholder")
+        self.photoImageView.sd_setImage(with: imageUrl, placeholderImage: placeholderImage)
+        self.nameLabel.text = character.name
+        self.idLabel.text = "ID: \(character.id)"
     }
     
 }

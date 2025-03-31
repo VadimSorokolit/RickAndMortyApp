@@ -117,9 +117,7 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
     private func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
-        }
+        self.present(alert, animated: true)
     }
     
     // MARK: - CharactersDisplayLogic
@@ -160,7 +158,7 @@ extension CharactersViewController: UITableViewDataSource  {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.reuseID, for: indexPath) as? CharacterTableViewCell else {
             return UITableViewCell() }
         let character = self.characters[indexPath.row]
-        cell.setupContent(photoURL: character.image, name: character.name, id: character.id)
+        cell.setupContent(character: character)
         return cell
     }
     
