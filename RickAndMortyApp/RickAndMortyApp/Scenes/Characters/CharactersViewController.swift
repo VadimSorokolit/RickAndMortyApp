@@ -23,11 +23,10 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         static let tableViewRowHeight: CGFloat = 80.0
         static let requestPage: Int = 1
         static let customTableViewInset = 20.0
-        static let titelLabelTopInset: CGFloat = 20.0
         static let tableViewTopInset: CGFloat = 30.0
         static let customErrorMessage: String = "Error"
         static let titleLabelFontSize: CGFloat = 30
-        static let backgroundAlpha: CGFloat = 0.5
+        static let backgroundAlpha: CGFloat = 0.9
     }
     
     // MARK: - Properties
@@ -77,7 +76,7 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
     }
     
     private func setupViews() {
-        self.view.backgroundColor = .lightGray.withAlphaComponent(Constants.backgroundAlpha)
+        self.view.backgroundColor = .white.withAlphaComponent(Constants.backgroundAlpha)
         self.view.addSubview(self.titleLabel)
         self.view.addSubview(self.tableView)
         
@@ -97,7 +96,7 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         self.router = router
         
         self.titleLabel.snp.makeConstraints({
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(Constants.titelLabelTopInset)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             $0.centerX.equalToSuperview()
         })
         self.tableView.snp.makeConstraints({

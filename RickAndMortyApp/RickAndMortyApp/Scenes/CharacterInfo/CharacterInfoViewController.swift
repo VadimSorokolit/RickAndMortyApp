@@ -15,7 +15,7 @@ class CharacterInfoViewController: UIViewController {
     
     private struct Constants {
         static let titleLabelFontSize: CGFloat = 30.0
-        static let titelLabelTopInset: CGFloat = 20.0
+        static let defaultTopInset: CGFloat = 20.0
         static let stackViewSpacing: CGFloat = 10.0
         static let labelsFontSize: CGFloat = 18.0
         static let placeholderImageName: String = "placeholder"
@@ -138,23 +138,23 @@ class CharacterInfoViewController: UIViewController {
         })
         
         self.titleLabel.snp.makeConstraints({
-            $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top).offset(Constants.titelLabelTopInset / 2.0)
+            $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top)
             $0.centerX.equalTo(contentView)
         })
         
         self.photoImageView.snp.makeConstraints({
-            $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.titelLabelTopInset)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.defaultTopInset)
             $0.centerX.equalTo(contentView)
-            $0.left.equalTo(contentView).offset(Constants.titelLabelTopInset)
-            $0.right.equalTo(contentView).inset(Constants.titelLabelTopInset)
-            $0.height.equalTo(photoImageView.snp.width) // квадратное изображение
+            $0.left.equalTo(contentView).offset(Constants.defaultTopInset)
+            $0.right.equalTo(contentView).inset(Constants.defaultTopInset)
+            $0.height.equalTo(photoImageView.snp.width)
         })
         
         self.stackView.snp.makeConstraints({
-            $0.top.equalTo(photoImageView.snp.bottom).offset(Constants.titelLabelTopInset)
-            $0.left.equalTo(contentView).offset(Constants.titelLabelTopInset)
-            $0.right.equalTo(contentView).inset(Constants.titelLabelTopInset)
-            $0.bottom.equalTo(contentView).inset(Constants.titelLabelTopInset)
+            $0.top.equalTo(photoImageView.snp.bottom).offset(Constants.defaultTopInset * 2.0)
+            $0.left.equalTo(contentView).offset(Constants.defaultTopInset)
+            $0.right.equalTo(contentView).inset(Constants.defaultTopInset)
+            $0.bottom.equalTo(contentView).inset(Constants.defaultTopInset)
         })
         
         self.updateUI()
@@ -166,7 +166,8 @@ class CharacterInfoViewController: UIViewController {
         self.idLabel.text = "ID: \(character.id)"
         self.genderLabel.text = "Gender: \(character.gender)"
         self.speciesLabel.text = "Species: \(character.species)"
-        self.typeLabel.text = "Type: \(character.type)"
+        let characterType = character.type.isEmpty ? "Unknown" : character.type
+        self.typeLabel.text = "Type: \(characterType)"
         
         if let url = URL(string: character.image), !character.image.isEmpty {
             self.photoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.placeholderImageName))
