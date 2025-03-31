@@ -27,6 +27,7 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         static let tableViewTopInset: CGFloat = 30.0
         static let customErrorMessage: String = "Error"
         static let titleLabelFontSize: CGFloat = 30
+        static let backgroundAlpha: CGFloat = 0.5
     }
     
     // MARK: - Properties
@@ -75,7 +76,7 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
     }
     
     private func setupViews() {
-        self.view.backgroundColor = .lightGray
+        self.view.backgroundColor = .lightGray.withAlphaComponent(Constants.backgroundAlpha)
         self.view.addSubview(self.titleLabel)
         self.view.addSubview(self.tableView)
         
