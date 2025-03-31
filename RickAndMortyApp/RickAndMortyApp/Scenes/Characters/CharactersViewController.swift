@@ -141,7 +141,7 @@ extension CharactersViewController: UITableViewDelegate {
     
 }
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDataSource
 
 extension CharactersViewController: UITableViewDataSource  {
     

@@ -26,7 +26,8 @@ struct Characters: Decodable {
         let id: Int
         let name: String
         let status: Status
-        let species, type: String
+        let species: String
+        let type: String
         let gender: Gender
         let origin, location: Location
         let image: String
@@ -55,14 +56,14 @@ struct Characters: Decodable {
 }
 
 extension CharResult {
-    init(id: Int, name: String, image: String) {
+    init(id: Int, name: String, image: String, species: String, gender: String, type: String) {
         self.id = id
         self.name = name
         self.image = image
         self.status = .unknown
-        self.species = ""
-        self.type = ""
-        self.gender = .unknown
+        self.species = species
+        self.type = type
+        self.gender = Gender(rawValue: gender) ?? .unknown
         self.origin = Location(name: "", url: "")
         self.location = Location(name: "", url: "")
         self.episode = []
@@ -84,7 +85,10 @@ extension CharResult: Equatable {
     static func == (lhs: CharResult, rhs: CharResult) -> Bool {
         return lhs.id == rhs.id &&
             lhs.name == rhs.name &&
-            lhs.image == rhs.image
+            lhs.image == rhs.image &&
+            lhs.species == rhs.species &&
+            lhs.gender == rhs.gender &&
+            lhs.type == rhs.type 
     }
 }
 

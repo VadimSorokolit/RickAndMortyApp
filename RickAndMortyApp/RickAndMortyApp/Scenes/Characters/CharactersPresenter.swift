@@ -26,7 +26,10 @@ class CharactersPresenter: CharactersPresenterLogic {
             CharacterModels.DisplayCharacters.ViewModel.CharacterModel(
                 id: character.id,
                 name: character.name,
-                image: character.image
+                image: character.image,
+                species: character.species,
+                gender: character.gender.rawValue,
+                type: character.type
             )
         })
         let viewModel = CharacterModels.DisplayCharacters.ViewModel(characterModels: characters)

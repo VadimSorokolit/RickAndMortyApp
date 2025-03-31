@@ -26,6 +26,9 @@ enum CharacterModels {
                 let id: Int
                 let name: String
                 let image: String
+                let species: String
+                let gender: String
+                let type: String
             }
             
             init (characterModels: [CharacterModel]) {

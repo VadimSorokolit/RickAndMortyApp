@@ -38,7 +38,10 @@ class CharactersInteractor: CharacterModelsBusinessLogic {
                                 let charResults = cachedCharacters.map { entity in
                                     CharResult(id: Int(entity.id),
                                                name: entity.name ?? "Unknown",
-                                               image: entity.iconURL ?? "")
+                                               image: entity.iconURL ?? "",
+                                               species: entity.species ?? "",
+                                               gender: entity.gender ?? "",
+                                               type: entity.type ?? "")
                                 }
                                 let response = CharacterModels.DisplayCharacters.Response(characters: charResults)
                                 self?.presenter?.presentCharacters(response: response)

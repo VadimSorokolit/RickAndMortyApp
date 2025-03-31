@@ -66,6 +66,9 @@ class CharactersStorageWorker: CharactersStorageProtocol {
                 entity.id = Int64(character.id)
                 entity.name = character.name
                 entity.iconURL = character.image
+                entity.species = character.species
+                entity.gender = character.gender.rawValue
+                entity.type = character.type
             }
             
             do {
