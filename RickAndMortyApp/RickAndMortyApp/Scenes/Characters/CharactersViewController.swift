@@ -33,6 +33,7 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
     // MARK: - Properties
     
     private var interactor: CharacterModelsBusinessLogic?
+    private var router: CharactersRoutingLogic?
     private var characters: [CharacterModels.DisplayCharacters.ViewModel.CharacterModel] = [] {
         didSet {
             self.tableView.reloadData()
@@ -85,12 +86,15 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         let presenter = CharactersPresenter()
         let worker = CharactersNetworkWorker()
         let storageWorker = CharactersStorageWorker()
+        let router = CharactersRouter()
         
         viewController.interactor = interactor
         interactor.presenter = presenter
         interactor.networkWorker = worker
         interactor.storage = storageWorker
-        presenter.viewController = viewController
+        presenter.viewController = self
+        router.vc = self
+        self.router = router
         
         self.titleLabel.snp.makeConstraints({
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(Constants.titelLabelTopInset)
@@ -138,6 +142,8 @@ extension CharactersViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let selectedCharacter = self.characters[indexPath.row]
+        self.router?.goToCharacterInfoViewController(selectedCharacter)
     }
     
 }

@@ -8,6 +8,21 @@
 
 import Foundation
 
-protocol CharacterInfoBusinessLogic: AnyObject  {}
+protocol CharacterInfoBusinessLogic: AnyObject  {
+    func transferCharacterInfoToPresenter (character: CharacterModels.DisplayCharacters.ViewModel.CharacterModel)
+}
 
-class CharacterInfoInteractor : CharacterInfoBusinessLogic {}
+class CharacterInfoInteractor : CharacterInfoBusinessLogic {
+    
+    var character: CharacterModels.DisplayCharacters.ViewModel.CharacterModel?
+    var presenter: CharacterInfoPresenterLogic?
+    
+    // MARK: - Methods
+    
+    func transferCharacterInfoToPresenter (character: CharacterModels.DisplayCharacters.ViewModel.CharacterModel) {
+        self.character = character
+        self.presenter?.displayCharacterInfo(character: character)
+    }
+    
+}
+    

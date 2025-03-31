@@ -8,6 +8,20 @@
 
 import Foundation
 
-protocol CharacterInfoPresenterLogic: AnyObject {}
+protocol CharacterInfoPresenterLogic: AnyObject {
+    func displayCharacterInfo(character: CharacterModels.DisplayCharacters.ViewModel.CharacterModel)
+}
 
-class CharacterInfoPresenter: CharacterInfoPresenterLogic {}
+class CharacterInfoPresenter: CharacterInfoPresenterLogic {
+    
+    // MARK: - Properties
+    
+    var viewController: CharacterInfoViewController?
+    
+    // MARK: - Methods
+    
+    func displayCharacterInfo(character: CharacterModels.DisplayCharacters.ViewModel.CharacterModel) {
+        self.viewController?.character = character
+    }
+    
+}
