@@ -14,7 +14,7 @@ protocol CharactersDisplayLogic: AnyObject {
     func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel)
 }
 
-class CharactersViewController: UIViewController {
+class CharactersViewController: UIViewController, CharactersDisplayLogic {
     
     // MARK: - Objects
     
@@ -32,7 +32,11 @@ class CharactersViewController: UIViewController {
     // MARK: - Properties
     
     private var interactor: CharacterModelsBusinessLogic?
-    private var characters: [CharacterModels.DisplayCharacters.ViewModel.CharacterModel] = []
+    private var characters: [CharacterModels.DisplayCharacters.ViewModel.CharacterModel] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -42,13 +46,7 @@ class CharactersViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    
-    private var charactersCount: Int = .zero {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
-    
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -57,6 +55,7 @@ class CharactersViewController: UIViewController {
         tableView.layer.masksToBounds = true
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = Constants.tableViewRowHeight
+        tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.reuseID)
         return tableView
     }()
     
@@ -103,7 +102,6 @@ class CharactersViewController: UIViewController {
             $0.bottom.equalToSuperview().inset(Constants.customTableViewInset)
             
         })
-        self.tableView.register(CartoonCharacterCell.self, forCellReuseIdentifier: CartoonCharacterCell.reuseID)
     }
     
     private func fetchCharacters() {
@@ -122,7 +120,6 @@ class CharactersViewController: UIViewController {
     // MARK: - CharactersDisplayLogic
     
     func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
-        self.charactersCount = viewModel.characterModels.count
         self.characters = viewModel.characterModels
     }
     
@@ -134,29 +131,30 @@ class CharactersViewController: UIViewController {
 }
 
 
-extension CharactersViewController: CharactersDisplayLogic {
+// MARK: - UITableViewDelegate
+
+extension CharactersViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
-
+extension CharactersViewController: UITableViewDataSource  {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.charactersCount
+        return self.characters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CartoonCharacterCell.reuseID, for: indexPath) as? CartoonCharacterCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.reuseID, for: indexPath) as? CharacterTableViewCell else {
             return UITableViewCell() }
         let character = self.characters[indexPath.row]
         cell.setupContent(photoURL: character.image, name: character.name, id: character.id)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

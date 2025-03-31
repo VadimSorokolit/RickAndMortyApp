@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import SDWebImage
 
-class CartoonCharacterCell: UITableViewCell {
+class CharacterTableViewCell: UITableViewCell {
     
     // MARK: - Objects
     
@@ -19,9 +19,10 @@ class CartoonCharacterCell: UITableViewCell {
         static let imageViewSize: CGFloat = 50.0
         static let fatalErrorMessage: String = "init(coder:) has not been implemented"
         static let photoImageViewLeftInset: CGFloat = 20.0
-        static let nameLabelInsets: (top: CGFloat, left: CGFloat, right: CGFloat) = (top: 15.0, left: 30.0, right: 10.0)
-        static let idLabelInsets: (top: CGFloat, left: CGFloat) = (top: 5.0, left: 30.0)
+        static let nameLabelInsets : UIEdgeInsets = UIEdgeInsets(top: 15.0, left: 30.0, bottom: 0.0, right: 10.0)
+        static let idLabelInsets: UIEdgeInsets = UIEdgeInsets(top: 5.0, left: 30.0, bottom: 0.0, right: 0.0)
     }
+    
     // MARK: - Properties
     
     static var reuseID: String {
@@ -48,7 +49,7 @@ class CartoonCharacterCell: UITableViewCell {
         return label
     }()
     
-    // MARK: Initialization
+    // MARK: Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -61,7 +62,7 @@ class CartoonCharacterCell: UITableViewCell {
         fatalError(Constants.fatalErrorMessage)
     }
     
-    // MARK: Setup functions
+    // MARK: Methods
     
     private func setupSubviews() {
         self.contentView.backgroundColor = .clear

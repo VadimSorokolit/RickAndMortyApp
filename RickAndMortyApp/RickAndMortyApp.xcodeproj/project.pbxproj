@@ -15,13 +15,13 @@
 		DDC4F9152D994546009E322A /* RickAndMortyAPIDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */; };
 		DDC4F9242D9987D0009E322A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDC4F9232D9987D0009E322A /* SnapKit */; };
 		DDC4F92C2D99D02F009E322A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DDC4F92B2D99D02F009E322A /* SDWebImage */; };
-		DDC4F92E2D9A76C0009E322A /* CartoonCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F92D2D9A76C0009E322A /* CartoonCharacterCell.swift */; };
+		DDC4F92E2D9A76C0009E322A /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4F92D2D9A76C0009E322A /* CharacterTableViewCell.swift */; };
 		DDEF44082D973EC200DFECE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */; };
 		DDEF440A2D973EC200DFECE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEF44022D973EC200DFECE8 /* LaunchScreen.storyboard */; };
 		DDEF440B2D973EC200DFECE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF43FE2D973EC200DFECE8 /* AppDelegate.swift */; };
 		DDEF440C2D973EC200DFECE8 /* RickAndMortyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44032D973EC200DFECE8 /* RickAndMortyApp.xcdatamodeld */; };
 		DDEF440D2D973EC200DFECE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44042D973EC200DFECE8 /* SceneDelegate.swift */; };
-		DDEF440E2D973EC200DFECE8 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44052D973EC200DFECE8 /* CharacterViewController.swift */; };
+		DDEF440E2D973EC200DFECE8 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44052D973EC200DFECE8 /* CharactersViewController.swift */; };
 		DDEF44132D9741E300DFECE8 /* CharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44122D9741C600DFECE8 /* CharactersInteractor.swift */; };
 		DDEF44152D97420D00DFECE8 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44142D9741FF00DFECE8 /* CharactersPresenter.swift */; };
 		DDEF44192D97424B00DFECE8 /* CharactersNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF44182D97422A00DFECE8 /* CharactersNetworkWorker.swift */; };
@@ -34,14 +34,14 @@
 		DDB6FC192D9869F600F4C149 /* CharactersStorageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersStorageWorker.swift; sourceTree = "<group>"; };
 		DDC4F9122D9944FF009E322A /* CharacterModelsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelsData.swift; sourceTree = "<group>"; };
 		DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyAPIDataModels.swift; sourceTree = "<group>"; };
-		DDC4F92D2D9A76C0009E322A /* CartoonCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartoonCharacterCell.swift; sourceTree = "<group>"; };
+		DDC4F92D2D9A76C0009E322A /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		DDEF43D32D973A8F00DFECE8 /* RickAndMortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEF43FE2D973EC200DFECE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDEF43FF2D973EC200DFECE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDEF44002D973EC200DFECE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDEF44012D973EC200DFECE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDEF44042D973EC200DFECE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDEF44052D973EC200DFECE8 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
+		DDEF44052D973EC200DFECE8 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		DDEF44072D973EC200DFECE8 /* RickAndMortyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RickAndMortyApp.xcdatamodel; sourceTree = "<group>"; };
 		DDEF44122D9741C600DFECE8 /* CharactersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersInteractor.swift; sourceTree = "<group>"; };
 		DDEF44142D9741FF00DFECE8 /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		DDC4F9252D998C9A009E322A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DDC4F92D2D9A76C0009E322A /* CartoonCharacterCell.swift */,
+				DDC4F92D2D9A76C0009E322A /* CharacterTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,7 +117,6 @@
 		DDEF44062D973EC200DFECE8 /* RickAndMortyApp */ = {
 			isa = PBXGroup;
 			children = (
-				DDC4F9252D998C9A009E322A /* Views */,
 				DDC4F9142D994543009E322A /* RickAndMortyAPIDataModels.swift */,
 				DDB6FC132D98577300F4C149 /* Services */,
 				DDEF440F2D973EC800DFECE8 /* App */,
@@ -149,12 +148,13 @@
 		DDEF44112D97413A00DFECE8 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				DDC4F9252D998C9A009E322A /* Views */,
 				DDC4F9162D99744E009E322A /* Workers */,
 				DDC4F9122D9944FF009E322A /* CharacterModelsData.swift */,
 				DDEF441A2D97425200DFECE8 /* CharactersRouter.swift */,
 				DDEF44142D9741FF00DFECE8 /* CharactersPresenter.swift */,
 				DDEF44122D9741C600DFECE8 /* CharactersInteractor.swift */,
-				DDEF44052D973EC200DFECE8 /* CharacterViewController.swift */,
+				DDEF44052D973EC200DFECE8 /* CharactersViewController.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 				DDEF441B2D97426C00DFECE8 /* CharactersRouter.swift in Sources */,
 				DDEF440B2D973EC200DFECE8 /* AppDelegate.swift in Sources */,
 				DDC4F9152D994546009E322A /* RickAndMortyAPIDataModels.swift in Sources */,
-				DDC4F92E2D9A76C0009E322A /* CartoonCharacterCell.swift in Sources */,
+				DDC4F92E2D9A76C0009E322A /* CharacterTableViewCell.swift in Sources */,
 				DDC4F9132D994500009E322A /* CharacterModelsData.swift in Sources */,
 				DDB6FC172D985DFA00F4C149 /* CharacterEntity+CoreDataClass.swift in Sources */,
 				DDB6FC182D985DFA00F4C149 /* CharacterEntity+CoreDataProperties.swift in Sources */,
@@ -252,7 +252,7 @@
 				DDEF44192D97424B00DFECE8 /* CharactersNetworkWorker.swift in Sources */,
 				DDEF44152D97420D00DFECE8 /* CharactersPresenter.swift in Sources */,
 				DDEF440D2D973EC200DFECE8 /* SceneDelegate.swift in Sources */,
-				DDEF440E2D973EC200DFECE8 /* CharacterViewController.swift in Sources */,
+				DDEF440E2D973EC200DFECE8 /* CharactersViewController.swift in Sources */,
 				DDEF44132D9741E300DFECE8 /* CharactersInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
