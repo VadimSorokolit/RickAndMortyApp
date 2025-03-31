@@ -1,7 +1,7 @@
 # RickAndMortyApp
 
 RickAndMortyApp based on Free API 
-* **https://rickandmortyapi.com**
+* API - **https://rickandmortyapi.com**
 
 * Architecture - **VIP**
 * Layout - **SnapKit**
@@ -10,7 +10,7 @@ RickAndMortyApp based on Free API
 * Database - **CoreData**
 * Resources - **SDWebImage**
 
-**For Run**
+**For Run:**
 * Download project from repository
 * Build project (**CMD+B**)
 * Run project (**CMD+R**)
