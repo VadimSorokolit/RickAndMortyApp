@@ -10,4 +10,9 @@ RickAndMortyApp based on Free API
 * Database - **CoreData**
 * Resources - **SDWebImage**
 
+**For Run**
+* Download project from repository
+* Build project (**CMD+B**)
+* Run project (**CMD+R**)
+
 
