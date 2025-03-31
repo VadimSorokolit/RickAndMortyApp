@@ -16,5 +16,6 @@ RickAndMortyApp based on Free API
 * Run project (**CMD+R**)
 
 <br />
-<img scr="https://github.com/user-attachments/assets/9a9958d9-8dde-4a19-8ac2-7da4f80db7e7" width = 48.8%>
+<img src="https://github.com/user-attachments/assets/b21f95ea-c458-4231-97d5-ba846dcf7870" width = 48.8%>
+
 
