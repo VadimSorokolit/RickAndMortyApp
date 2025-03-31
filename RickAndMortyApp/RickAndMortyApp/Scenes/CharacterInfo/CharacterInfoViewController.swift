@@ -84,6 +84,17 @@ class CharacterInfoViewController: UIViewController {
         label.font = .systemFont(ofSize: Constants.labelsFontSize, weight: .medium)
         return label
     }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.alwaysBounceVertical = true
+        return scrollView
+    }()
+
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        return view
+    }()
 
     // MARK: - Lifecycel
     
@@ -97,45 +108,58 @@ class CharacterInfoViewController: UIViewController {
     
     private func setup() {
         self.view.backgroundColor = .white
-        self.view.addSubview(self.titleLabel)
-        self.view.addSubview(self.photoImageView)
-        self.view.addSubview(self.stackView)
+        self.view.addSubview(self.scrollView)
+        self.scrollView.addSubview(self.contentView)
         
-        self.stackView.addArrangedSubview(nameLabel)
-        self.stackView.addArrangedSubview(idLabel)
-        self.stackView.addArrangedSubview(genderLabel)
-        self.stackView.addArrangedSubview(speciesLabel)
-        self.stackView.addArrangedSubview(typeLabel)
+        self.contentView.addSubview(self.titleLabel)
+        self.contentView.addSubview(self.photoImageView)
+        self.contentView.addSubview(self.stackView)
         
-        let viewController = self
+        self.stackView.addArrangedSubview(self.nameLabel)
+        self.stackView.addArrangedSubview(self.idLabel)
+        self.stackView.addArrangedSubview(self.genderLabel)
+        self.stackView.addArrangedSubview(self.speciesLabel)
+        self.stackView.addArrangedSubview(self.typeLabel)
+        
         let interactor = CharacterInfoInteractor()
         let presenter = CharacterInfoPresenter()
         
-        viewController.interactor = interactor
+        self.interactor = interactor
         interactor.presenter = presenter
         presenter.viewController = self
         
+        self.scrollView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+        
+        self.contentView.snp.makeConstraints({
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView.frameLayoutGuide)
+        })
+        
         self.titleLabel.snp.makeConstraints({
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(Constants.titelLabelTopInset)
-            $0.centerX.equalToSuperview()
+            $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top).offset(Constants.titelLabelTopInset)
+            $0.centerX.equalTo(contentView)
         })
         
         self.photoImageView.snp.makeConstraints({
-            $0.top.equalTo(self.titleLabel.snp.bottom).offset(Constants.titelLabelTopInset)
-            $0.centerX.equalToSuperview()
-            $0.left.equalToSuperview().offset(Constants.titelLabelTopInset)
-            $0.right.equalToSuperview().inset(Constants.titelLabelTopInset)
-            $0.size.equalTo(UIScreen.main.bounds.width)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.titelLabelTopInset)
+            $0.centerX.equalTo(contentView)
+            $0.left.equalTo(contentView).offset(Constants.titelLabelTopInset)
+            $0.right.equalTo(contentView).inset(Constants.titelLabelTopInset)
+            $0.height.equalTo(photoImageView.snp.width) // квадратное изображение
         })
         
         self.stackView.snp.makeConstraints({
-            $0.top.equalTo(self.photoImageView.snp.bottom).offset(Constants.titelLabelTopInset)
-            $0.left.equalToSuperview().offset(Constants.titelLabelTopInset)
+            $0.top.equalTo(photoImageView.snp.bottom).offset(Constants.titelLabelTopInset)
+            $0.left.equalTo(contentView).offset(Constants.titelLabelTopInset)
+            $0.right.equalTo(contentView).inset(Constants.titelLabelTopInset)
+            $0.bottom.equalTo(contentView).inset(Constants.titelLabelTopInset)
         })
         
         if self.character != nil {
              self.updateUI()
-         }
+        }
     }
     
     private func updateUI() {
@@ -154,3 +178,4 @@ class CharacterInfoViewController: UIViewController {
     }
     
 }
+
