@@ -16,6 +16,9 @@ class CharacterInfoViewController: UIViewController {
     private struct Constants {
         static let titleLabelFontSize: CGFloat = 30.0
         static let titelLabelTopInset: CGFloat = 20.0
+        static let stackViewSpacing: CGFloat = 10.0
+        static let labelsFontSize: CGFloat = 18.0
+        static let placeholderImageName: String = "placeholder"
     }
     
     // MARK: - Properties
@@ -43,47 +46,42 @@ class CharacterInfoViewController: UIViewController {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 10.0
+        stackView.spacing = Constants.stackViewSpacing
         return stackView
     }()
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Name:"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 18.0, weight: .medium)
+        label.font = .systemFont(ofSize: Constants.labelsFontSize, weight: .medium)
         return label
     }()
     
     private lazy var idLabel: UILabel = {
         let label = UILabel()
-        label.text = "ID:"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 18.0, weight: .medium)
+        label.font = .systemFont(ofSize: Constants.labelsFontSize, weight: .medium)
         return label
     }()
     
     private lazy var genderLabel: UILabel = {
         let label = UILabel()
-        label.text = "Gender:"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 18.0, weight: .medium)
+        label.font = .systemFont(ofSize: Constants.labelsFontSize, weight: .medium)
         return label
     }()
     
     private lazy var speciesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Species:"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 18.0, weight: .medium)
+        label.font = .systemFont(ofSize: Constants.labelsFontSize, weight: .medium)
         return label
     }()
     
     private lazy var typeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Type:"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 18.0, weight: .medium)
+        label.font = .systemFont(ofSize: Constants.labelsFontSize, weight: .medium)
         return label
     }()
 
@@ -94,6 +92,8 @@ class CharacterInfoViewController: UIViewController {
         
         self.setup()
     }
+    
+    // MARK: - Methods
     
     private func setup() {
         self.view.backgroundColor = .white
@@ -147,9 +147,9 @@ class CharacterInfoViewController: UIViewController {
         self.typeLabel.text = "Type: \(character.type)"
         
         if let url = URL(string: character.image), !character.image.isEmpty {
-            self.photoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
+            self.photoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.placeholderImageName))
         } else {
-            self.photoImageView.image = UIImage(named: "placeholder")
+            self.photoImageView.image = UIImage(named: Constants.placeholderImageName)
         }
     }
     
