@@ -14,7 +14,7 @@ protocol CharactersDisplayLogic: AnyObject {
     func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel)
 }
 
-class CharactersViewController: UIViewController, CharactersDisplayLogic {
+class CharactersViewController: UIViewController {
     
     // MARK: - Objects
     
@@ -71,10 +71,12 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         let interactor = CharactersInteractor()
         let presenter = CharactersPresenter()
         let worker = CharactersNetworkWorker()
+        let storageWorker = CharactersStorageWorker()
         
         viewController.interactor = interactor
         interactor.presenter = presenter
-        interactor.worker = worker
+        interactor.networkWorker = worker
+        interactor.storage = storageWorker
         presenter.viewController = viewController
 
         self.tableView.snp.makeConstraints({
@@ -92,6 +94,14 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
         self.interactor?.fetchCharacters(request: request)
     }
     
+    private func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+    }
+    
     // MARK: - CharactersDisplayLogic
     
     func displayCharacters(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
@@ -100,11 +110,17 @@ class CharactersViewController: UIViewController, CharactersDisplayLogic {
     }
     
     func displayError(viewModel: CharacterModels.DisplayCharacters.ViewModel) {
-        print(viewModel.errorMessage ?? Constants.customErrorMessage)
+        let error = viewModel.errorMessage ?? Constants.customErrorMessage
+        self.showErrorAlert(message: error)
     }
     
 }
 
+
+extension CharactersViewController: CharactersDisplayLogic {
+    
+    
+}
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 

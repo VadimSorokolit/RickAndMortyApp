@@ -16,14 +16,14 @@ class CharactersInteractor: CharacterModelsBusinessLogic {
     
     // MARK: - Properties
     
-    var worker: CharactersNetworkWorkerProtocol?
-    private var storage: CharactersStorageProtocol?
+    var networkWorker: CharactersNetworkWorkerProtocol?
+    var storage: CharactersStorageProtocol?
     var presenter: CharactersPresenterLogic?
     
     // MARK: - Methods
     
     func fetchCharacters(request: CharacterModels.DisplayCharacters.Request) {
-        self.worker?.fetchCharacters(page: request.page) { [weak self] result in
+        self.networkWorker?.fetchCharacters(page: request.page) { [weak self] result in
             switch result {
                 case .success(let characters):
                     self?.storage?.saveCharacters(characters: characters.results, completion: nil)
